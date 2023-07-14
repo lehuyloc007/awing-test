@@ -5,7 +5,7 @@ import {
     handelAddViewSecondStep,
     handelSetActiveViewSecondStep,
     handelSetValueViewSecondStep,
-} from "../../redux/stepManagement";
+} from "../../../../redux/stepManagement";
 import TemplateOne from "./TemplateOne";
 import TemplateTwo from "./TemplateTwo";
 
@@ -41,7 +41,7 @@ const SeconStep = ({ prev }) => {
         form.setFieldsValue(data.content);
     };
     const showViewNextStep = () => {
-        secondStep.forEach((item) => {
+        secondStep?.forEach((item) => {
             if (item?.active === true) {
                 setTemplateActive(item?.content?.template);
                 form.setFieldsValue(item?.content);

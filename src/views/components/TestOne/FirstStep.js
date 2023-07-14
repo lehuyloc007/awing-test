@@ -1,7 +1,7 @@
 import { Button, Form, Input } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { handelSetValueFirstStep } from "../redux/stepManagement";
+import { handelSetValueFirstStep } from "../../../redux/stepManagement";
 
 const FirstStep = ({ next }) => {
     const [form] = Form.useForm();

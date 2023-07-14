@@ -1,56 +1,43 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import React, { useState } from "react";
-import { Col, Row, Steps } from "antd";
-import FirstStep from "./Components/FirstStep";
-import SecondStep from "./Components/SecondStep";
+import Routers from "./router";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-
+import { Layout } from "antd";
+import Sider from "antd/es/layout/Sider";
+import Navigate from "./navigate";
+import { Content } from "antd/es/layout/layout";
+import { Suspense } from "react";
+const contentStyle = {
+    //minHeight: "100vh",
+    backgroundColor: "#fff",
+};
+const siderStyle = {
+    backgroundColor: "#001529",
+    height: "100vh",
+};
 const App = () => {
-    const [current, setCurrent] = useState(0);
-
-    const next = () => {
-        setCurrent(current + 1);
-    };
-    const prev = () => {
-        setCurrent(current - 1);
-    };
-    const steps = [
-        {
-            title: "First",
-            content: <FirstStep next={next} />,
-        },
-        {
-            title: "Second",
-            content: <SecondStep prev={prev} />,
-        },
-    ];
-    const items = steps.map((item) => ({
-        key: item.title,
-        title: item.title,
-    }));
-
     return (
         <>
-            <Provider store={store}>
-                <Row justify="center">
-                    <Col span={6}>
-                        <Steps
-                            type="navigation"
-                            className="site-navigation-steps"
-                            current={current}
-                            items={items}
-                        />
-                        <div
-                            style={{
-                                marginTop: 24,
-                            }}
-                        >
-                            {steps[current].content}
-                        </div>
-                    </Col>
-                </Row>
-            </Provider>
+            <BrowserRouter>
+                <Suspense fallback={null}>
+                    <Provider store={store}>
+                        <Layout hasSider>
+                            <Sider
+                                style={siderStyle}
+                                breakpoint="lg"
+                                collapsedWidth="0"
+                            >
+                                <Navigate />
+                            </Sider>
+
+                            <Content style={contentStyle}>
+                                <Routers />
+                            </Content>
+                        </Layout>
+                    </Provider>
+                </Suspense>
+            </BrowserRouter>
         </>
     );
 };
