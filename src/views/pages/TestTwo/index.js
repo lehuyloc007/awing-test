@@ -75,7 +75,7 @@ const TestTwo = () => {
     return (
         <>
             <Row justify="center" style={{ marginTop: 40 }}>
-                <Col span={7}>
+                <Col span={8}>
                     <Form
                         name="testTwo"
                         labelCol={{
@@ -123,25 +123,21 @@ const TestTwo = () => {
                         </Form.Item>
                     </Form>
                     <Card>
-                        <p>
-                            {`const minTotalCost = (nums, cost) => {`} <br />
-                            {`let listTotal = [];`} <br />
-                            {`for (let n = 0; n < nums.length; n++) {`} <br />
-                            {`let itemAdd = nums[n] + 1;`} <br />
-                            {`let totalItem = 0;`} <br />
-                            {`for (let i = 0; i < nums.length; i++) {`} <br />
-                            {`if (nums[i] < itemAdd) {`} <br />
-                            {`totalItem += (itemAdd - nums[i]) * cost[i];`}{" "}
-                            <br />
-                            {`} else {`} <br />
-                            {` totalItem += (nums[i] - itemAdd) * cost[i];`}{" "}
-                            <br />
-                            {`}`} <br />
-                            {`}`} <br />
-                            {`}`} <br />
-                            {`return Math.min(...listTotal)};`} <br />
-                            {`}`} <br />
-                        </p>
+                        <p>{`const minTotalCost = (nums, cost) => { `}</p>
+                        <p>{`let listTotal = [];`} </p>
+                        <p>{`for (let n = 0; n < nums.length; n++) {`}</p>
+                        <p>{`let itemAdd = nums[n] + 1;`} </p>
+                        <p>{`let totalItem = 0;`} </p>
+                        <p>{`for (let i = 0; i < nums.length; i++) {`} </p>
+                        <p>{`if (nums[i] < itemAdd) {`} </p>
+                        <p>{`totalItem += (itemAdd - nums[i]) * cost[i];`}</p>
+                        <p>{`} else {`} </p>
+                        <p>{` totalItem += (nums[i] - itemAdd) * cost[i];`}</p>
+                        <p>{`}`}</p>
+                        <p>{`}`} </p>
+                        <p>{`}`} </p>
+                        <p>{`return Math.min(...listTotal)};`} </p>
+                        <p>{`}`} </p>
                     </Card>
                 </Col>
             </Row>
